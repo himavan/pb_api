@@ -1,5 +1,5 @@
 const config = require('config');
-const Joi = require('Joi');
+const Joi = require('joi');
 Joi.ObjectId = require('joi-objectId')(Joi);
 const mongoose = require('mongoose');
 const express = require('express');
