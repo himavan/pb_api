@@ -1,6 +1,6 @@
 const config = require('config');
 const Joi = require('joi');
-Joi.ObjectId = require('joi-objectId')(Joi);
+Joi.ObjectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
@@ -15,7 +15,7 @@ if (!config.get('jwtPrivateKey')) {
     process.exit(1);
 }
 
-mongoose.connect('mongodb://localhost/pb', { useNewUrlParser: true })
+mongoose.connect('mongodb://appaccess:app1234@ds151513.mlab.com:51513/pb', { useNewUrlParser: true })
     .then(() => console.log('Connected to MongoDb...'))
     .catch(err => console.error('Could not connect to MongoDb...'));
 
