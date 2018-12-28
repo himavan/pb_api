@@ -49,7 +49,7 @@ router.put('/', auth, async (req, res) => {
 
     await user.save();
     res.send(_.pick(user, ['_id', 'name', 'email','address','image']));
-    
+
 });
 
 router.put('/password', auth, async (req, res) => {
@@ -59,7 +59,7 @@ router.put('/password', auth, async (req, res) => {
     let user = await User.findById( req.user._id);
     if (!user) return res.status(400).send('User not Found!.');
 
-    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    const validPassword = await bcrypt.compare(req.body.oldPwd, user.password);
     if (!validPassword) return res.status(400).send('Invalid Current Password.');
 
     const salt = await bcrypt.genSalt(10);
