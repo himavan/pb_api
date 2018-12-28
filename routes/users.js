@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     await user.save();
 
     const token = user.generateAuthToken();
-    res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email','image']));
+    res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
     let groups = new Group({ group: ["family", "friends","work"], added_by: user._id });
     await groups.save();
 
@@ -53,8 +53,8 @@ router.put('/', auth, async (req, res) => {
     user.password = await bcrypt.hash(req.body.newPwd, salt);
 
     await user.save();
-
     res.send(_.pick(user, ['_id', 'name', 'email','address','image']));
+
 });
   
   module.exports = router; 
