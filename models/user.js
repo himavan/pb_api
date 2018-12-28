@@ -61,15 +61,22 @@ function validateUpdateUser(user) {
         name: Joi.string().min(5).max(50).required(),
         email: Joi.string().min(5).max(255).required().email(),
         password: Joi.string().min(5).max(255).required(),
-        newPwd: Joi.string().min(5).max(255).required(),
         address: Joi.string().min(5).max(50),
         image:Joi.string(),
         __v:Joi.number()
     };
+    return Joi.validate(user, schema);
+}
 
+function validateUpdatePwd(user) {
+    const schema = {
+        oldPwd: Joi.string().min(5).max(255).required(),
+        newPwd: Joi.string().min(5).max(255).required()
+    };
     return Joi.validate(user, schema);
 }
 
 exports.User = User;
 exports.validate = validateNewUser;
 exports.validateUpdateUser = validateUpdateUser;
+exports.validateUpdatePwd = validateUpdatePwd;
