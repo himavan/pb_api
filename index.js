@@ -15,7 +15,7 @@ if (!config.get('jwtPrivateKey')) {
     process.exit(1);
 }
 
-mongoose.connect('mongodb://appaccess:app1234@ds151513.mlab.com:51513/pb', { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost/pb', { useNewUrlParser: true })
     .then(() => console.log('Connected to MongoDb...'))
     .catch(err => console.error('Could not connect to MongoDb...' + err));
 
