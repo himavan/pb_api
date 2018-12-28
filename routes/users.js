@@ -54,7 +54,7 @@ router.put('/', auth, async (req, res) => {
 
     await user.save();
 
-    res.send(_.pick(user, ['_id', 'name', 'email']));
+    res.send(_.pick(user, ['_id', 'name', 'email','address','image']));
 });
   
   module.exports = router; 

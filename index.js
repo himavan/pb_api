@@ -17,7 +17,7 @@ if (!config.get('jwtPrivateKey')) {
 
 mongoose.connect('mongodb://appaccess:app1234@ds151513.mlab.com:51513/pb', { useNewUrlParser: true })
     .then(() => console.log('Connected to MongoDb...'))
-    .catch(err => console.error('Could not connect to MongoDb...'));
+    .catch(err => console.error('Could not connect to MongoDb...' + err));
 
 app.use(function (req, res, next) {
     console.log(req.method, req.url);
@@ -34,6 +34,8 @@ var allowCrossDomain = function (req, res, next) {
 
 app.use(express.json({limit: '50mb'}));
 app.use(allowCrossDomain);
+app.use('/',express.static('public'));
+
 app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/contacts', contacts);
