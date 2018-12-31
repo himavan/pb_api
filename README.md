@@ -1,6 +1,10 @@
-# Phonebook App using Nodejs, Expressjs, Mongoose, Angularjs
+# Phonebook App API (BackEnd using Nodejs, Expressjs, Mongoose)
 
 An App to store contacts of users. And has features like add to favourites, create groups and manage contacts
+
+For Fontend of this Application visit this [link](https://phonebook-angularjs.herokuapp.com)
+
+For Live Demo of this Application visit this [link](https://pb-angularjs.herokuapp.com/)
 
 ## Getting Started
 
